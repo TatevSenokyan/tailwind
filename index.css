@@ -1,0 +1,96 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+    @apply overflow-x-hidden;
+}
+
+body {
+    @apply overflow-x-hidden p-0 m-0 relative box-border;
+}
+
+ul li {
+    @apply list-none font-roboto not-italic font-bold text-[17px] lg:text-[20px] leading-[20px] text-[#212121] cursor-pointer md:hover:text-[#1E9EC3] md:hover:underline;
+}
+
+.servicesText {
+    @apply not-italic font-normal text-[16px] leading-[19px] text-[#FFFFFF] tracking-[.015em] lg:text-[20px] lg:leading-[23.44px] xl:leading-[28px]
+}
+
+.aboutTextStyle {
+    @apply w-[100%] font-roboto not-italic font-normal text-[16px] leading-[19px];
+}
+
+.projectName {
+    @apply w-[100%] font-roboto not-italic font-bold text-[20px] leading-[23px] ml-[14.9px] lg:text-[24px];
+}
+
+.project-image {
+    @apply w-[226px] h-[226px] sm:w-[166.48px] sm:h-[166px] md:w-[255px] md:h-[255px]  bg-[#FFFFFF] shadow-project-xs rounded-[20px] bg-[50%_50%] bg-no-repeat mt-[14.33px];
+}
+
+.project-more {
+    @apply font-roboto font-normal not-italic text-[16px] leading-[19px] text-[#1E9EC3] underline cursor-pointer xs:mt-[14.33px] xs:self-end sm:mt-[10px];
+}
+
+.project-buttons {
+    @apply w-[86px] flex xs:mt-[-18px] self-center sm:mt-[20px] sm:self-start md:w-[316px] md:mt-[51px] md:flex lg:mt-[25px] lg:flex-col;
+}
+
+.app-store, .google-play {
+    @apply w-[36px] h-[36px] md:w-[148px] md:h-[42px] md:flex md:justify-end md:items-center md:text-left bg-[#FFFFFF] shadow-project-xs rounded-[6px] cursor-pointer outline-none border-none;
+}
+
+.app-store {
+    @apply bg-[url('./images/app_store.png')] bg-no-repeat bg-[50%_50%] md:bg-[6%_50%] bg-[length:20.57px_20.57px] sm:bg-[length:24px_24px];
+}
+
+.google-play {
+    @apply ml-[10px] bg-[url('./images/google_play.png')] bg-no-repeat bg-[50%_50%] md:bg-[6%_50%] bg-[length:17.14px_24px] sm:bg-[length:20px_24px] md:justify-center lg:ml-0 lg:mt-[20px];
+}
+
+.project-text {
+    @apply w-[156px] h-[38px] overflow-hidden text-ellipsis mt-[15px] font-roboto not-italic font-normal text-[16px] leading-[19px] text-[#212121] sm:line-clamp-2 md:w-[320px] md:h-[69px] md:line-clamp-3 md:text-[20px] md:leading-[23px] md:tracking-[.5px] lg:w-[255px] lg:h-[92px] lg:line-clamp-4;
+}
+
+.modal-app-store, .modal-google-play {
+    @apply lg:w-[148px] lg:h-[42px] lg:rounded-[5px] md:w-[121.97px] md:h-[34.61px] md:rounded-[4.12px] w-[74px] h-[21px] bg-[#FFFFFF] outline-none cursor-pointer flex items-center justify-end rounded-[2.5px] shadow-project-xs border-none;
+}
+
+.modal-app-store {
+    @apply bg-[url('./images/app_store.png')] bg-no-repeat bg-[length:12px_12px] bg-[3%_50%] md:bg-[length:19.78px_19.78px] lg:bg-[length:24px_24px]; 
+}
+
+.modal-google-play {
+    @apply bg-[url('./images/google_play.png')] bg-no-repeat bg-[length:10px_12px] bg-[3%_50%] ml-[10px] md:bg-[length:16.48px_19.78px] lg:bg-[length:20px_24px]; 
+}
+
+.modal-app-button-content {
+    @apply w-[51.5px] text-[6px] text-left md:w-[87px] md:text-[9.89px] lg:w-[106px] lg:mr-[10px];
+ }
+
+.modal-app-text, .modal-google-text {
+    @apply text-left text-[8px] md:text-[13.19px] lg:text-[16px];
+}
+
+.modal-google-button-content {
+    @apply text-[6px] w-[47.5px] text-left mr-[5px] md:w-[82px] lg:w-[100px] lg:mr-[10px];
+}
+
+.projectImg {
+    @apply lg:h-[170px] w-[298px] h-[50px] my-[13px] mx-auto sm:w-[100%] sm:h-[50px] sm:my-[20px] sm:mx-auto md:h-[97px] md:my-[40px] md:mx-auto lg:mt-[80px] lg:mb-[0px];
+}
+
+.converterModalImg {
+    @apply w-[200px] h-[86px] mt-[2px] sm:w-[182px] sm:h-[90px] sm:mt-[10px] md:w-[360px] md:h-[176px] md:mt-[17px] lg:w-[615px] lg:h-[300px] lg:mt-[70px];
+}
+
+.projectLogo {
+    @apply w-[27.81px] h-[28px]
+}
+
+.minerTitle {
+    @apply text-[#1E989B];
+}
+

@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>WitPlex</title>
+    <link rel="icon" href="https://www.witplex.com/new-web/images/favicon.svg" type="image/x-icon">
+    <link rel="mask-icon" href="//www.witplex.com/new-web/images/favicon.svg" type="image/svg+xml" color="#1E9EC3">
+    <link rel='stylesheet' href='./index.css' />
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <script src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+  </head>
+  <body>
+    <div id="fb-root"></div>
+    <!-- Chat Plugin code -->
+    <div id="fb-customer-chat" class="fb-customerchat"></div>
+    <div class="projectModal w-[100%] h-[100%] z-[9999999999] bg-modal absolute hidden">
+      <div class="a w-[100%] h-[100vh] flex items-center">
+         <div class="projectModalContent lg:w-[1129px] lg:h-[711px] lg:rounded-[20px] md:w-[664px] md:h-[418.16px] md:rounded-[11.76px] w-[100%] h-[201px] bg-[#FFFFFF] m-auto sm:w-[345px] sm:h-[217.27px] sm:rounded-[6px]">
+            <div class="projectContainer lg:w-[1049px] lg:my-[80px] lg:mx-auto md:w-[617px] md:my-[32px] md:mx-auto sm:w-[321px] w-[298px] my-[14px] mx-auto flex flex-col justify-center sm:mx-auto sm:my-[20px]">
+               <div class="projectModalTitle flex items-center justify-center">
+                  <img class="projectModalLogo w-[19px] h-[19px]" />
+                  <span class="projectModalName ml-[6px] md:text-[23.5px] lg:ml-[20px] lg:text-[40px]"></span>
+               </div>
+               <div class="projectModalText lg:h-[140px] lg:leading-[28px] lg:mt-[29px] lg:text-[24px] md:text-[18px] md:w-[607px] md:h-[84px] md:leading-[18px] md:mt-[20px] text-[8px] w-[273px] text-center font-roboto font-normal not-italic leading-[8px] text-[#212121] m-auto mt-[10px] lg:w-[793px]"></div>
+               <div class="projectModalButtons my-[10px] mx-auto w-[158px] flex sm:my-[5px] md:w-[261px] md:my-[11px] md:mx-auto lg:m-auto lg:w-[316px]"></div>
+               <img class="projectModalImage"></img>
+            </div>   
+         </div>
+      </div>
+    </div>
+    <!-- bloom slider for each product -->
+    <div class="openSlider w-[100%] h-[100%] hidden absolute items-center justify-center z-[9999999999] bg-modal">
+      <div class="modal w-[63%] h-[711px] rounded-[30px] m-[200px] flex bg-transparent">
+          <div class="modalContent w-[100%] h-[711px] flex items-center justify-center">
+            <img class="modalPrev w-[65px] h-[107px] cursor-pointer" src='./images/slide_prev_button.png' />
+            <img class="modalImg w-[82%] h-[711px]" />
+            <img class="modalNext  w-[65px] h-[107px] cursor-pointer" src='./images/slide_next_button.png'/>
+          </div>
+      </div>
+   </div>
+    <nav class="flex fixed w-full h-[46px] md:h-[74px] lg:h-[95px] bg-white shadow-nav-xs z-[1000000] items-center">
+      <ul class="flex items-end relative xs:w-full justify-between md:w-[684px] lg:w-[976px] m-auto">
+          <li class="xs:opacity-0 md:opacity-100">Services</li>
+          <li class="xs:opacity-0 md:opacity-100">Projects</li>
+          <li><div class="w-[74px] h-[40px] md:w-[100px] md:h-[54px] lg:w-[140px] lg:h-[75px] bg-[url('./images/logo.svg')] bg-cover"></div></li>
+          <li class="xs:opacity-0 md:opacity-100">About</li>
+          <li class="xs:opacity-0 md:opacity-100">Contact Us</li>
+      </ul>
+      <svg class="cursor-pointer absolute ml-[90%] z-[250000000] md:hidden" onClick="Menu(this)" width="26" height="20" viewBox="0 0 26 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M24.3227 3.33301H1.67729C0.754698 3.33301 0 2.58315 0 1.66646C0 0.749782 0.754698 -8.24928e-05 1.67729 -8.24928e-05H24.3227C25.2453 -8.24928e-05 26 0.749782 26 1.66646C26.0003 2.58315 25.2453 3.33301 24.3227 3.33301Z" fill="black"/>
+        <path d="M24.3227 11.6665H1.67729C0.754698 11.6665 0 10.9166 0 9.99996C0 9.08328 0.754698 8.33341 1.67729 8.33341H24.3227C25.2453 8.33341 26 9.08328 26 9.99996C26.0003 10.9166 25.2453 11.6665 24.3227 11.6665Z" fill="black"/>
+        <path d="M24.3227 20H1.67729C0.754698 20 0 19.2501 0 18.3335C0 17.4168 0.754698 16.6669 1.67729 16.6669H24.3227C25.2453 16.6669 26 17.4168 26 18.3335C26.0003 19.2501 25.2453 20 24.3227 20Z" fill="black"/>
+      </svg>
+      <div class="navLogo bg-[url('./images/footer_logo.svg')] m-auto absolute w-[100%] h-[62px] z-[25000000] hidden justify-center bg-[length:74px_40px] bg-no-repeat bg-[50%_50%]"></div>
+    </nav>
+    <div class="w-[100%] flex justify-center pt-[46px] md:pt-[74px] lg:h-[614px]">
+      <div class="xs:w-[320px] md:w-[744px] xs:h-[250px] sm:w-[375px] sm:h-[356px] xs:m-main-xs sm:m-main-sm xs:bg-[url('./images/company.svg')] md:bg-[url('./images/company_lg.svg')] bg-no-repeat xs:bg-cover md:bg-contain relative lg:mt-[35px] lg:w-[1199px] lg:h-[572px]">
+        <img class="xs:w-[260px] xs:h-[260px] sm:w-[340px] sm:h-[340px] lg:w-[589px] lg:h-[589px] absolute" src="./images/dots.svg" />
+        <img class="absolute xs:w-[250px] xs:h-[250px] ml-[5px] mt-[5px] sm:w-[330px] sm:h-[330px] animate-unfilled lg:w-[564px] lg:h-[564px] lg:mt-[12.5px] lg:ml-[12.5px]" src="./images/unfilled.svg" />
+        <img class="absolute xs:w-[190px] xs:h-[190px] xs:ml-[35px] xs:mt-[35px] sm:w-[250px] sm:h-[250px] sm:ml-[45px] sm:mt-[45px] animate-filled lg:w-[419px] lg:h-[419px] lg:ml-[85px] lg:mt-[85px]" src="./images/filled.svg" />
+        <img class="absolute xs:w-[180px] xs:h-[180px] xs:ml-[40px] xs:mt-[40px] sm:w-[240px] sm:h-[240px] sm:ml-[50px] sm:mt-[50px] lg:w-[397px] lg:h-[397px] lg:ml-[96px] lg:mt-[96px]" src="./images/circle.svg" />
+        <div class="canvas-top absolute xs:hidden mt-[59px] ml-[405px] lg:mt-[87px] lg:ml-[660px] md:block ">
+          <canvas class="line-top absolute w-[256px] h-[23px]  lg:w-[423px] lg:h-[50px]" width='423' height='50'></canvas>
+          <canvas class="arc-top absolute w-[256px] h-[23px] lg:w-[423px] lg:h-[50px]" width='423' height='50'></canvas>
+        </div>
+        <div class="canvas-bottom absolute mt-[243px] ml-[441px] xs:hidden md:block lg:mt-[392px] lg:ml-[716px]">
+          <canvas class="line absolute w-[160px] h-[30px] lg:w-[259px] lg:h-[50px]"  width='259' height='50'></canvas>
+          <canvas class="arc absolute w-[160px] h-[30px] lg:w-[259px] lg:h-[50px]" width='259' height='50'></canvas>
+        </div>
+        <div class="absolute z-[1000] xs:w-[150px] sm:w-[201px] md:w-[216px] lg:w-[357px] h-[88px] font-roboto not-italic xs:text-[12px] sm:text-[14px] lg:text-[17px] text-center xs:leading-[16px] sm:leading-[21px] lg:leading-[23px] xs:ml-[53px] xs:mt-[91px] sm:ml-[69px] md:ml-[62px] sm:mt-[131px] lg:ml-[116px] lg:mt-[265px]">
+          <span class="text-[#1E9EC3] font-bold not-italic xs:text-[11.4px] sm:text-[13.2px] md:text-[15.4px] lg:text-[16.4px] lg:w-[357px]">A SOFTWARE TECHNOLOGY COMPANY</span>
+          <span class="xs:text-[15px] sm:text-[16px] md:text-[18px] lg:text-[20px] flex xs:w-[157px] sm:w-[214px] md:w-[211px] lg:w-[328px] text-center xs:p-0 sm:ml-[-6px] md:pl-[20px] md:pr-[7px] lg:pl-[60px] lg:pr-[17px]">
+             sclabale server-client systems design
+                   and development
+          </span>
+       </div>
+      </div>
+    </div>
+    <div class="w-[100%] relative lg:mt-[100px]">
+      <div class="w-full h-[296px] z-[-1000] mt-[189px] bg-cover absolute bg-[url('./images/background.svg')] sm:mt-[206px] md:h-[613.32px] md:mt-[90px] lg:h-[1061px] lg:mt-[50px] xl:h-[1583px] xl:mt-[-87px]"></div>
+      <div class="w-full bg-[#212121] h-[273px] sm:h-[283px] md:h-[263px] lg:h-[361px] xl:h-[396px] flex justify-center mt-[3px] sm:mt-[10px]">
+        <div class="services w-[91.5%] absolute lg:w-[94.6%]">
+          <p class="decoration-[#1E9EC3] lg:text-[34px] lg:mt-[70px] decoration-2 underline-offset-[5px] md:underline-offset-[7px] lg:underline-offset-[10px] underline font-roboto not-italic font-bold text-[18px] text-[#FFFFFF] leading-[21.09px] text-center mt-[16px] md:mt-[30px] md:text-[24px]">Services</p>
+          <div class="servicesItems w-full flex z-[2000000] flex-wrap md:w-[95%] md:mt-[27px]">
+            <div name="mobile" onclick="clickItem(this)" onmouseover="hover(this)" onmouseleave="leave(this)" class="w-[37.9%] h-[94px] text-center cursor-pointer sm:w-[34.6%] sm:h-[88px] md:w-[18.7%] md:mt-[11px] lg:w-[15.5%] lg:h-[138px] lg:mt-[24px] xl:w-[9.8%] xl:h-[145px] xl:mt-[14px]">
+               <div class="w-[20.67px] h-[40px] m-auto lg:w-[111px] lg:h-[60px]">
+                 <svg class="lg:scale-150 m-auto" fill='none' xmlns="http://www.w3.org/2000/svg" width="21" height="40"  xmlns:v="https://vecta.io/nano">
+                    <path fill-rule="evenodd" d="M1.902 0h16.863a1.95 1.95 0 0 1 1.902 1.893v36.214A1.95 1.95 0 0 1 18.765 40H1.902A1.95 1.95 0 0 1 0 38.107V1.893A1.95 1.95 0 0 1 1.902 0zm8.495 1.388c.127 0 .381.126.381.379 0 .126-.254.379-.381.379-.254 0-.38-.252-.38-.379 0-.252.127-.379.38-.379zM6.34 2.902h7.988c.38 0 .38.631 0 .631H6.34c-.254 0-.254-.631 0-.631zm-4.438 2.65c-.127 0-.127 0-.127.126v29.4s0 .126.127.126h16.863c.127 0 .254-.126.254-.126v-29.4c0-.126-.127-.126-.254-.126H1.902z" fill="#fff"/>
+                 </svg>
+               </div>
+               <p class="servicesText mt-[16px] sm:mt-[10px] md:mt-[32px] lg:min-w-[166px] lg:my-[32px] lg:mx-auto xl:mt-[29px] xl:text-[24px]">
+                     Mobile<br />
+                 ( IOS, Android )
+               </p>
+            </div>
+            <div name="web" onclick="clickItem(this)" onmouseover="hover(this)" onmouseleave="leave(this)" class="w-[45.4%] h-[69px] ml-[13%] md:w-[14%] md:mt-[11px] md:ml-[6.5%] sm:w-[41.4%] sm:ml-[20.1%] text-center cursor-pointer lg:w-[13.7%] lg:h-[138px] lg:mt-[24px] lg:ml-[6.75%] xl:w-[11.7%] xl:h-[145px] xl:mt-[14px] xl:ml-[14.2%]">
+               <div class="w-[40px] h-[40px] m-auto lg:w-[166px] xl:w-[199pz] lg:h-[60px]">
+                 <svg class="lg:scale-150 m-auto" xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="none" xmlns:v="https://vecta.io/nano">
+                    <path d="M37.334 7.333c-.558 0-1.075.173-1.504.468l-3.575-2.043c.262-.531.413-1.127.413-1.759 0-2.206-1.794-4-4-4s-4 1.794-4 4c0 1.412.737 2.653 1.845 3.365l-1.989 2.983c-1.399-.656-2.931-1.014-4.523-1.014a10.59 10.59 0 0 0-5.968 1.825L10.554 8.26a4.01 4.01 0 0 0 .113-.927c0-2.206-1.794-4-4-4s-4 1.794-4 4c0 1.671 1.031 3.105 2.49 3.702l-2.297 6.317c-.065-.005-.127-.019-.193-.019A2.67 2.67 0 0 0 0 20a2.67 2.67 0 0 0 2.667 2.666A2.67 2.67 0 0 0 5.333 20c0-.932-.482-1.751-1.208-2.227l2.345-6.449.196.01a4 4 0 0 0 3.335-1.797l2.959 2.465-.503.456-.51.55c-.012.014-.019.03-.03.045-1.667 1.933-2.585 4.368-2.585 6.947a10.58 10.58 0 0 0 2.585 6.947c.011.015.018.031.03.045l.51.55c2.014 2.015 4.693 3.125 7.542 3.125.975 0 1.927-.139 2.842-.391l.361 1.805a4.01 4.01 0 0 0-3.111 3.072l-6.108-1.666c.003-.052.015-.101.015-.154a2.67 2.67 0 0 0-2.667-2.666 2.67 2.67 0 0 0-2.667 2.666A2.67 2.67 0 0 0 11.333 36c.945 0 1.773-.498 2.246-1.242l6.459 1.761C20.294 38.48 21.971 40 24 40c2.206 0 4-1.794 4-4 0-2.017-1.502-3.685-3.445-3.957l-.439-2.198c1.265-.529 2.428-1.304 3.427-2.303l.51-.55c.012-.014.019-.03.03-.045A10.58 10.58 0 0 0 30.668 20a10.58 10.58 0 0 0-2.585-6.948c-.011-.015-.018-.031-.03-.045l-.51-.55c-.565-.565-1.187-1.051-1.846-1.469l2.065-3.096c.291.068.593.107.905.107 1.092 0 2.083-.441 2.805-1.153l3.476 1.986c-.174.354-.281.747-.281 1.167a2.67 2.67 0 0 0 2.667 2.666A2.67 2.67 0 0 0 40 10.001a2.67 2.67 0 0 0-2.666-2.668zM24.29 11.712l.347.19c.309.178.607.373.893.585l.419.33c.039.032.316.324.355.313l-1.95.455c-.527-.861-1.15-1.676-1.889-2.414l-.237-.228.424.106c.565.167 1.115.39 1.638.662zm5.011 7.62h-3.151a12.19 12.19 0 0 0-1.138-4.522l2.308-.592c1.164 1.469 1.849 3.236 1.981 5.115zm-1.98 6.448c-.6-.188-1.382-.4-2.308-.592.665-1.419 1.052-2.947 1.138-4.522h3.151a9.25 9.25 0 0 1-1.981 5.115zm-1.539 1.537c-.927.735-1.995 1.298-3.13 1.633l-.424.106.237-.228c.739-.738 1.361-1.553 1.889-2.415l1.95.455-.208.189-.314.26zm-8.793 1.517c-.561-.191-1.102-.439-1.615-.734a9.56 9.56 0 0 1-.902-.59c-.089-.066-.699-.663-.775-.643l1.95-.455a12.99 12.99 0 0 0 1.889 2.415l.237.228-.424-.106-.361-.115zM10.7 20.666h3.151a12.19 12.19 0 0 0 1.138 4.522l-2.308.592c-1.165-1.468-1.849-3.236-1.981-5.114zm1.98-6.448c.6.188 1.382.4 2.308.592-.665 1.419-1.052 2.947-1.138 4.522h-3.151c.133-1.879.817-3.646 1.981-5.114zm1.227-1.275c1.111-.961 2.439-1.651 3.866-2l-.237.228c-.738.739-1.361 1.553-1.889 2.415l-1.95-.455.21-.187zm4.572 14.941c-.528-.528-.996-1.096-1.404-1.695l2.259-.176v2.664l-.855-.793zm0-15.77l.855-.793v2.664l-2.259-.176c.407-.599.876-1.167 1.404-1.695zm.855 3.201v4.018h-4.151c.092-1.496.488-2.943 1.165-4.277.907.137 1.915.228 2.986.259zm0 5.351v4.018c-1.071.031-2.079.122-2.986.259-.677-1.333-1.073-2.781-1.165-4.277h4.151zm1.334 8.013v-2.665l2.259.176a11.73 11.73 0 0 1-1.404 1.695l-.855.794zm0-3.995v-4.018h4.151c-.092 1.496-.488 2.943-1.165 4.277-.907-.137-1.915-.228-2.986-.259zm0-5.351v-4.018c1.071-.031 2.079-.122 2.986-.259.677 1.333 1.073 2.78 1.165 4.277h-4.151zm0-5.347v-2.664l.855.793a11.74 11.74 0 0 1 1.404 1.695c-.704.09-1.461.152-2.259.176z" fill="#fff"/>
+                 </svg>
+               </div>
+               <p class="servicesText mt-[10px] md:mt-[31px] lg:mt-[32px] lg:w-[166px] xl:w-[199px] m-auto text-center xl:text-[24px] xl:mt-[29px]">
+                 Web Development
+               </p>
+            </div>
+            <div name="test" onclick="clickItem(this)" onmouseover="hover(this)" onmouseleave="leave(this)" class="w-[24.6%] md:w-[12.3%] md:ml-[7%] md:mt-[11px] h-[73px] mt-[28px] text-center cursor-pointer sm:w-[22.4%] sm:mt-[12px] lg:w-[7.4%] lg:h-[138px] lg:mt-[24px] lg:ml-[12%] xl:w-[6.3%] xl:h-[145px] xl:mt-[24px] xl:ml-[13.5%]">
+               <div class="w-[35px] h-[40px] m-auto lg:w-[108px] lg:h-[60px]">
+                 <svg class="lg:scale-150 m-auto" xmlns="http://www.w3.org/2000/svg" width="35" height="40" fill="none" xmlns:v="https://vecta.io/nano">
+                    <path d="M33.417 18.087a1.25 1.25 0 0 0-.884.365c-.235.234-.366.551-.366.882v.915a4.61 4.61 0 0 1-1.234 3.112 4.63 4.63 0 0 1-3.017 1.462c.005-1.59-.277-3.167-.833-4.657 1.697-.222 3.255-1.054 4.383-2.34a7.02 7.02 0 0 0 1.742-4.645v-.915a1.29 1.29 0 0 0-.378-.87c-.232-.232-.544-.367-.872-.377a1.25 1.25 0 0 0-.884.365c-.234.234-.366.551-.366.882v.915a4.57 4.57 0 0 1-1.342 3.234 4.59 4.59 0 0 1-3.241 1.34h-.208a13.05 13.05 0 0 0-1.583-2.079A9.66 9.66 0 0 0 25 12.016c0-2.952-1.208-5.613-3.125-7.235l2.667-2.661c.239-.227.375-.543.375-.873s-.136-.646-.375-.873A1.21 1.21 0 0 0 23.667 0a1.21 1.21 0 0 0-.875.374l-3.125 3.077c-1.506-.554-3.16-.554-4.666 0L11.875.374a1.21 1.21 0 0 0-1.75 0c-.239.228-.375.543-.375.873s.136.646.375.873l2.667 2.661c-1.917 1.622-3.125 4.283-3.125 7.235-.017 1.251.21 2.494.667 3.659-.596.638-1.127 1.335-1.583 2.079h-.208a4.59 4.59 0 0 1-3.241-1.34 4.57 4.57 0 0 1-1.342-3.234v-.915c0-.331-.132-.648-.366-.882a1.25 1.25 0 0 0-.884-.365c-.328.01-.64.145-.873.377a1.29 1.29 0 0 0-.378.87v.915a7.02 7.02 0 0 0 1.742 4.645c1.127 1.286 2.686 2.118 4.383 2.34-.556 1.49-.839 3.067-.833 4.657a4.63 4.63 0 0 1-3.017-1.462A4.61 4.61 0 0 1 2.5 20.249v-.915c0-.331-.132-.648-.366-.882a1.25 1.25 0 0 0-.884-.365c-.328.01-.64.145-.872.377a1.29 1.29 0 0 0-.378.87v.915a7.06 7.06 0 0 0 2.015 4.94 7.09 7.09 0 0 0 4.901 2.128c.169 1.223.521 2.415 1.042 3.534a7.13 7.13 0 0 0-4.336 2.37 7.1 7.1 0 0 0-1.747 4.615v.915c0 .331.132.648.366.882a1.25 1.25 0 0 0 .884.365 1.21 1.21 0 0 0 .897-.352c.237-.236.365-.561.353-.895v-.915a4.61 4.61 0 0 1 1.354-3.222 4.63 4.63 0 0 1 3.229-1.352h.375c1.958 2.661 4.833 4.324 8 4.324s6.042-1.663 8-4.324h.375a4.63 4.63 0 0 1 3.229 1.352 4.61 4.61 0 0 1 1.354 3.222v.915c-.012.334.116.659.353.895a1.21 1.21 0 0 0 .897.352 1.25 1.25 0 0 0 .884-.365c.234-.234.366-.551.366-.882v-.915a7.1 7.1 0 0 0-1.747-4.615 7.13 7.13 0 0 0-4.336-2.37 12.41 12.41 0 0 0 1.042-3.534 7.09 7.09 0 0 0 4.901-2.128 7.06 7.06 0 0 0 2.015-4.94v-.915a1.29 1.29 0 0 0-.378-.87c-.232-.232-.544-.367-.872-.377h0zm-16.083-3.035c2.583 0 4.833 1.497 6.333 3.784-1.542 2.37-3.833 3.784-6.333 3.784S12.542 21.206 11 18.835c1.5-2.287 3.792-3.784 6.333-3.784zm0-9.522c2.875 0 5.167 2.91 5.167 6.486-.001.673-.085 1.343-.25 1.996-1.462-.952-3.171-1.459-4.916-1.459a9.01 9.01 0 0 0-4.917 1.459c-.165-.653-.249-1.323-.25-1.996 0-3.576 2.292-6.486 5.167-6.486h0zm0 29.563c-4.459 0-8.083-4.491-8.083-10.021-.016-1.241.167-2.476.542-3.659 2 2.328 4.667 3.701 7.542 3.701 2.941-.051 5.705-1.408 7.542-3.701.375 1.183.558 2.418.542 3.659 0 5.53-3.625 10.021-8.083 10.021h0z" fill="#fff"/>
+                 </svg>
+               </div>
+               <p class="servicesText mt-[14px] sm:mt-[20px] md:mt-[43px] lg:w-[108px] lg:mt-[32px] xl:mt-[29px] xl:text-[24px]">
+                 Test & Fix
+               </p>
+            </div>
+            <div name="design" onclick="clickItem(this)" onmouseover="hover(this)"onmouseleave="leave(this)"  class="w-[17.4%] md:w-[7.2%] md:ml-[12.3%] md:mt-[11px] h-[73px] ml-[15%] mt-[28px] text-center cursor-pointer sm:w-[16%] sm:mt-[13px] sm:ml-[19.6%] lg:w-[6%] lg:h-[138px] lg:mt-[24px] lg:ml-[16%] xl:w-[4.3%] xl:h-[145px] xl:mt-[24px] xl:ml-[17.3%]">
+               <div class="w-[48.67px] h-[40px] m-auto lg:w-[51px] lg:h-[60px]">
+                 <svg class="lg:scale-150" xmlns="http://www.w3.org/2000/svg" width="49" height="40" fill="none" xmlns:v="https://vecta.io/nano">
+                    <path d="M48.666 20.214a1.22 1.22 0 0 0-.683-1.098l-5.535-2.732 5.498-2.628h0a1.22 1.22 0 0 0 0-2.189L24.92.129a1.24 1.24 0 0 0-1.101 0L.762 11.562a1.22 1.22 0 0 0-.688 1.094 1.22 1.22 0 0 0 .688 1.095l5.498 2.628-5.535 2.732h0a1.22 1.22 0 0 0-.688 1.094A1.22 1.22 0 0 0 .725 21.3l5.498 2.628L.688 26.66h0a1.22 1.22 0 0 0 0 2.189l23.15 11.03a1.24 1.24 0 0 0 1.07 0l23.064-11.025a1.22 1.22 0 0 0 0-2.189l-5.535-2.732 5.498-2.628h0a1.22 1.22 0 0 0 .732-1.091h0zM24.373 2.58l20.296 10.049-20.296 9.695-20.296-9.695L24.373 2.58zm15.296 22.689l4.976 2.439-20.272 9.72-20.296-9.689L9.052 25.3l14.761 7.055a1.24 1.24 0 0 0 1.07 0l14.785-7.086zm-.523-2.439l-14.773 7.049-14.761-7.067-5.535-2.628 4.976-2.439L23.813 24.8h0a1.24 1.24 0 0 0 1.07 0l14.761-7.055 4.976 2.439-5.474 2.647z" fill="#fff"/>
+                 </svg>
+               </div>
+               <p class="servicesText mt-[14px] sm:mt-[20px] md:mt-[43px] lg:mt-[32px] xl:mt-[29px] xl:text-[24px]">
+                 Design
+               </p>
+            </div>
+            <div name="support" onclick="clickItem(this)" onmouseover="hover(this)" onmouseleave="leave(this)" class="w-[19.8%] md:w-[8.2%] md:ml-[13.4%] md:mt-[11px] h-[73px] ml-[20.8%] mt-[28px] text-center cursor-pointer sm:w-[18%] sm:mt-[13px] sm:ml-[21.8%] lg:w-[6%] lg:h-[138px] lg:mt-[24px] lg:ml-[15.4%] xl:w-[5.1%] xl:h-[145px] xl:mt-[24px] xl:ml-[17.3%]">
+               <div class="w-[40px] h-[40px] m-auto lg:w-[60px] lg:h-[60px]">
+                 <svg class="lg:scale-150 m-auto" xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="#fff" xmlns:v="https://vecta.io/nano">
+                    <path d="M1.926 24.441h1.925c.357 1.35.927 2.629 1.569 3.836l-1.355 1.35c-.784.782-.784 1.989 0 2.771L7.63 35.95a1.95 1.95 0 0 0 1.355.568c.499 0 .998-.213 1.355-.568l1.355-1.35c1.212.711 2.496 1.208 3.85 1.563v1.918c0 1.066.856 1.918 1.925 1.918h5.063c1.069 0 1.925-.852 1.925-1.918v-1.918c1.355-.355 2.638-.924 3.85-1.563l1.355 1.35a1.95 1.95 0 0 0 1.355.568 1.95 1.95 0 0 0 1.355-.568l3.565-3.552c.784-.781.784-1.989 0-2.771l-1.355-1.35c.713-1.208 1.212-2.487 1.569-3.836h1.925c1.069 0 1.925-.852 1.925-1.918v-5.045c0-1.065-.855-1.918-1.925-1.918H36.15c-.357-1.35-.927-2.629-1.569-3.836l1.355-1.35c.784-.782.784-1.989 0-2.771L32.371 4.05a1.95 1.95 0 0 0-1.355-.568 1.95 1.95 0 0 0-1.355.568L28.307 5.4c-1.212-.711-2.496-1.208-3.85-1.563V1.918C24.457.853 23.601 0 22.532 0H17.47c-1.069 0-1.925.852-1.925 1.918v1.918c-1.355.355-2.638.924-3.85 1.563l-1.355-1.35a1.95 1.95 0 0 0-1.355-.568 1.95 1.95 0 0 0-1.355.568L4.064 7.602c-.784.782-.784 1.989 0 2.771l1.355 1.35c-.713 1.208-1.212 2.487-1.569 3.836H1.925C.856 15.559 0 16.412 0 17.478v5.045c0 1.066.856 1.918 1.926 1.918h0zm.214-6.749h3.422l.428-1.563c.285-1.137.784-2.274 1.355-3.339l.784-1.421-2.424-2.415 3.28-3.268L11.409 8.1l1.426-.782c1.069-.568 2.21-1.066 3.351-1.35l1.569-.426V3.837 2.061h4.634v1.776 1.634l1.569.426c1.141.284 2.282.782 3.351 1.35l1.426.782 2.424-2.415 3.28 3.268-1.212 1.35-1.141 1.137.784 1.421c.571 1.066 1.069 2.202 1.355 3.339l.428 1.563h3.422v4.618h-3.422l-.428 1.563c-.285 1.137-.784 2.274-1.355 3.339l-.784 1.421 2.424 2.415-3.28 3.268-1.283-1.208-1.141-1.137-1.426.782c-1.069.568-2.21 1.066-3.351 1.35l-1.569.426v3.41h-4.634v-3.41l-1.569-.426c-1.141-.284-2.282-.782-3.351-1.35l-1.426-.782-2.424 2.415-3.28-3.268L8.2 28.703l-.784-1.421c-.57-1.065-1.069-2.202-1.355-3.339l-.499-1.634H2.14v-4.618zm17.968 11.225c4.92 0 8.912-3.979 8.912-8.881s-3.992-8.881-8.912-8.881-8.912 3.979-8.912 8.881 3.993 8.881 8.912 8.881zm0-15.701a6.76 6.76 0 0 1 6.773 6.749c0 3.695-3.066 6.749-6.773 6.749s-6.773-3.055-6.773-6.749 3.066-6.749 6.773-6.749z"/>
+                 </svg>
+               </div>
+               <p class="servicesText mt-[14px] md:mt-[44px] lg:mt-[32px] xl:mt-[29px] xl:text-[24px]">
+                 Support
+               </p>
+            </div>
+          </div>
+       </div>
+      </div>
+      <div class="serviceDescr w-[100%]">
+        <div class="w-[92.5%] p-0 font-roboto not-italic font-normal opacity-0 text-[14px] leading-[22.63px] text-[#FFFFFF] z-[1500] m-auto"></div>
+      </div>
+      <div class="aboutContainer w-[100%] lg:mt-[62px]">
+        <div class="w-[92.5%] m-auto min-h-[200px] md:w-[99%] md:m-0  md:min-h-[310px] lg:h-[238px]">
+          <p class="font-roboto not-italic font-bold text-[18px] leading-[21px] text-center underline decoration-[#1E9EC3] decoration-2 underline-offset-[5px] md:text-[24px] lg:text-[34px]">About</p>
+          <div class="aboutWrapper rounded-[15px] h-[182px] p-[10px] bg-about overflow-hidden sm:h-[144px] sm:w-[100%] sm:p-0 md:h-[295px] md:w-[684px] md:m-auto lg:w-[1100px] lg:h-[238px] lg:py-[15px] lg:px-[10px] lg:my-[57px] lg:mx-auto">
+           <div class="aboutTextStyle lg:w-[1093px] lg:h-[218px] lg:flex lg:overflow-hidden lg:tracking-[.8px] m-auto w-[93%] tracking-[.8px] text-[#212121] sm:w-[327px] sm:tracking-[.5px] md:h-[310px] md:w-[652px] md:overflow-hidden md:text-[20px] md:leading-[23px]">
+              <span class="lg:w-[324px] lg:pr-[10px]">
+                 Engineering company offering highly qualified design services,
+                 consulting and solutions to companies specialized in both software
+                 and hardware <br class="hidden md:block lg:hidden" />design spheres.
+                 <br class="lg:block space"/><br class="space lg:hidden"/>
+                 We are providing wide range of services for software development and consulting.
+              </span>
+              <br class="block md:hidden lg:block" />
+              <span class="lg:w-[324px] lg:ml-[30px]">
+                 A team of customer-centric technologists, IT specialists and software developers
+                 who thrive on solving complex business problems using a mix of Cloud & Digital technology.
+              </span>
+              <br/>
+              <br />
+              <span class="lg:w-[324px] lg:ml-[30px]">
+                 We believe that passionate people are the driving force behind business success & great customer experience.
+                 Our aim is to help businesses achieve digital transformation through innovative use of technology.
+              </span>
+            </div>
+         </div>
+            <p class="aboutTextStyle aboutRead cursor-pointer underline text-[#1E9EC3] text-right md:hidden">
+              More
+            </p>
+       </div>
+      </div>
+      <div class="projectsWrapper w-full">
+         <p class="font-roboto not-italic font-bold text-[18px] leading-[21.09px] text-center underline  decoration-[#1E9EC3] underline-offset-[5px] decoration-[2px] text-[#212121]">Projects</p>
+         <div class="projects w-[100%] md:w-[92%] lg:w-[1101px] md:m-auto lg:flex lg:justify-center lg:flex-wrap">
+          <!-- minerbox -->
+          <div class="w-[100%] lg:w-[530px]">
+            <div class="w-[226px] my-[25px] mx-auto sm:w-[347px] md:w-[684px] lg:w-[530px]">
+               <div class="w-[100%] flex items-center sm:hidden lg:flex">
+                  <img class="w-[27.81px] h-[28px] lg:w-[43.92px] lg:h-[44px]" src="./images/minerbox_logo.png"/>
+                  <span class="projectName text-[#1E989B] lg:text-[24px]">MinerBox</span>
+               </div>
+               <div class="w-[100%] flex flex-col sm:flex-row lg:mt-[10px]">
+                  <div class="project-image bg-[url('./images/minerbox_project.png')] bg-contain"></div>
+                  <div class="sm:w-[156px] ml-[24.52px] flex flex-col md:w-[320px] lg:w-[255px] lg:ml-[20px]">
+                     <div class="hidden sm:flex sm:mt-[15px] sm:items-center lg:hidden">
+                        <img class="w-[27.81px] h-[28px] md:w-[43.92px] md:h-[44px]" src='./images/minerbox_logo.png'/>
+                        <span class='projectName sm:text-[18px] text-[#1E989B] md:text-[24px]'>MinerBox</span>
+                     </div>
+                     <div class="project-text hidden">
+                        MinerBox is a tool, that is designed for cryptocoin miners to make easy control and monitor of the mining process.
+                     </div>
+                     <div onclick='renderProjectModal("miner")' class="project-more minrbox-project-more">More</div>
+                     <div class="project-buttons minrbox-project-buttons">
+                         <a target="_blank" href="https://itunes.apple.com/us/app/minerbox/id1445878254?ls=1&mt=8">
+                           <button class="app-store">
+                              <div class="app-button-content hidden md:block md:w-[106px] md:text-[12px]">
+                                 <span class="download-text">Download on the</span>
+                                 <span class="app-text md:text-[16px]">App Store</span>
+                              </div>
+                           </button>
+                         </a>
+                         <a target="_blank" href='https://play.google.com/store/apps/details?id=com.witplex.minerbox_android'>
+                           <button class="google-play">
+                              <div class="google-button-content hidden md:block md:w-[88px] md:text-[12px]">
+                                 <span class="get-text">Get it on</span>
+                                 <span class="google-text md:text-[16px]">Google Play</span>
+                              </div>
+                           </button>
+                         </a>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+        <!-- converter -->
+        <div class="w-[100%] mt-[-8px] bg-[#F3F5FD] md:rounded-[15px] lg:bg-[#FFFFFF] lg:ml-[40px] lg:w-[530px]">
+          <div class="w-[226px] my-[25px] mx-auto sm:w-[347px] md:w-[684px] lg:w-[530px]">
+            <div class="w-[100%] flex items-center pt-[15px] sm:hidden lg:flex lg:pt-[8px]">
+              <img class="w-[27.81px] h-[28px] lg:w-[43.92px] lg:h-[44px]" src='./images/converter_logo.png'/>
+              <span class="projectName text-[#94C4E9] lg:text-[24px]">Coin Converter</span>
+            </div>
+            <div class="w-[100%] flex flex-col sm:flex-row-reverse lg:flex-row">
+              <div class="project-image md:ml-[73px] md:mr-[20px] bg-[url('./images/converter_project.png')] bg-contain sm:ml-[24px] lg:ml-0 lg:mr-0"></div>
+              <div class="w-[100%] flex flex-col sm:ml-0 sm:w-[160px] md:ml-0 md:w-[320px] lg:w-[255px] lg:ml-[20px]">
+                  <div class="hidden sm:flex sm:mt-[15px] sm:items-center lg:hidden">
+                      <img class="w-[27.81px] h-[28px] md:w-[43.92px] md:h-[44px]" src='./images/converter_logo.png'/>
+                      <span class="projectName sm:text-[18px] md:text-[24px] sm:text-[#94C4E9] sm:ml-[10px]">Coin Converter</span>
+                  </div>
+                  <div class="project-text sm:w-[137px] hidden md:w-[320px] lg:w-[255px] project-text-converter">
+                      Coin Converter is an incredibly simple and handy converter app for cryptocurrencies and fiats.
+                  </div>
+                  <div onclick='renderProjectModal("converter")' class="project-more converter-project-more">More</div>
+                  <div class="project-buttons mb-[15px]">
+                      <a target="_blank" href="https://apps.apple.com/us/app/coinconverter-crypto-currency/id1494639072">
+                        <button class="app-store">
+                          <div class="app-button-content hidden md:block md:w-[106px] md:text-[12px]">
+                            <span class="download-text">Download on the</span>
+                            <span class="app-text md:text-[16px]">App Store</span>
+                          </div>
+                        </button>
+                      </a>
+                      <a target="_blank" href="https://play.google.com/store/apps/details?id=com.witplex.coinconverter">
+                        <button class="google-play">
+                            <div class="google-button-content hidden md:block md:w-[88px] md:text-[12px]">
+                              <span class="get-text">Get it on</span>
+                              <span class="google-text md:text-[16px]">Google Play</span>
+                            </div>
+                        </button>
+                      </a>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- playtime -->
+        <div class="w-[100%] project-container-playtime lg:w-[530px]">
+          <div class="w-[226px] my-[25px] mx-auto project-block-playtime sm:w-[347px] md:w-[684px] lg:w-[530px]">
+             <div class="w-[100%] flex items-center projectTitlePlaytime sm:hidden lg:flex">
+                <img class="w-[27.81px] h-[28px] lg:w-[43.92px] lg:h-[44px]" src='./images/playTime_logo.png'/>
+                <span class="projectName text-[#503783] lg:text-[24px]">PlayTime</span>
+             </div>
+             <div class="w-[100%] flex flex-col sm:flex-row">
+                <div class="project-image bg-[url('./images/play_time.png')] bg-contain"></div>
+                <div class="w-[100%] flex flex-col sm:w-[156px] md:w-[320px] sm:ml-[24.52px] lg:w-[255px] lg:ml-[20px]">
+                   <div class="hidden sm:mt-[15px] sm:flex sm:items-center lg:hidden">
+                      <img class="w-[27.81px] h-[28px] md:w-[43.92px] md:h-[44px]" src='./images/playTime_logo.png'/>
+                      <span class="projectName text-[#503783] sm:text-[18px] md:text-[24px]">PlayTime</span>
+                   </div>
+                   <div class="project-text project-text-playTime sm:w-[154px] hidden md:line-clamp-4 md:w-[316px] md:h-[92px] lg:w-[255px]">
+                      Play Time World is a free attractive puzzle, coloring pages, drawing and sketching app for adults and kids. Puzzle, free Art with drawing and coloring 4 all ages. Edu and creaative desk.
+                   </div>
+                   <div onclick='renderProjectModal("playTime")' class="project-more playtime-project-more">More</div>
+                   <div class="project-buttons playtime-project-buttons mb-[15px] md:mt-[30px]">
+                       <a target="_blank" href="https://itunes.apple.com/us/app/id1461758812">
+                         <button class="app-store">
+                            <div class="app-button-content hidden md:block md:w-[106px] md:text-[12px]">
+                               <span class="download-text">Download on the</span>
+                               <span class="app-text md:text-[16px]">App Store</span>
+                            </div>
+                         </button>
+                       </a>
+                       <a target="_blank" href="https://play.google.com/store/apps/details?id=com.witplex.playtimecoloring">
+                         <button class="google-play">
+                            <div class="google-button-content hidden md:block md:w-[88px] md:text-[12px]">
+                               <span class="get-text">Get it on</span>
+                               <span class="google-text md:text-[16px]">Google Play</span>
+                            </div>
+                         </button>
+                       </a>
+                   </div>
+                </div>
+             </div>
+          </div>
+       </div> 
+       <!-- math -->
+       <div class="w-[100%] mt-[-23px] bg-[#F3F5FD] md:rounded-[15px] lg:w-[530px] lg:bg-[#FFFFFF] lg:ml-[40px] lg:mt-[-10px]">
+        <div class="w-[226px] my-[25px] mx-auto project-block-math sm:w-[347px] md:w-[684px] lg:w-[530px]">
+           <div class="w-[100%] flex  items-center pt-[15px] sm:hidden lg:flex">
+              <img class="w-[27.81px] h-[28px] lg:w-[43.92px] lg:h-[44px]" src='./images/math_logo.png'/>
+              <span class="projectName text-[#4A95C7] lg:text-[24px]">Math for Kids</span>
+           </div>
+           <div class="w-[100%] flex flex-col sm:flex-row-reverse project-content-math lg:flex-row">
+              <div class="project-image md:ml-[73px] md:mr-[20px] bg-[url('./images/math_project.png')] bg-[length:165.98px_194.14px] sm:bg-[length:122.65px_143.46px] sm:ml-[24px] md:bg-[length:187.28px_219.05px] lg:mx-0"></div>
+              <div class="inner-project-content-math sm:ml-0 flex flex-col md:ml-0 md:w-[320px] lg:w-[255px] lg:ml-[20px]">
+                 <div class="inner-project-title hidden sm:flex sm:mt-[15px] sm:items-center lg:hidden">
+                    <img class="w-[27.81px] h-[28px] md:w-[43.92px] md:h-[44px]" src='./images/math_logo.png'/>
+                    <span class='projectName sm:text-[#4A95C7] sm:text-[18px] md:text-[24px]'>Math for Kids</span>
+                 </div>
+                 <div class="project-text project-text-math hidden md:line-clamp-4 md:w-[316px] md:h-[92px] lg:w-[255px] lg:line-clamp-3 lg:h-[69px]">
+                    Fun Math Games for Kids will teach your child the basics of counting, addition, subtraction, multiplication, and division. In Math game there are exercises for various mathematical topics. App will help to develop and educate mathematical skills and builds up strong mathematics foundation.
+                 </div>
+                 <div onclick='renderProjectModal("math")' class="project-more math-project-more lg:mt-[10px]">More</div>
+                 <div class="project-buttons mb-[15px] md:mt-[30px] lg:mt-[49px]">
+                     <a target="_blank" href="https://apps.apple.com/us/app/math-for-kids-cool-fun-games/id1570425468">
+                       <button class="app-store">
+                          <div class="app-button-content hidden md:block md:w-[106px] md:text-[12px]">
+                             <span class="download-text">Download on the</span>
+                             <span class="app-text md:text-[16px]">App Store</span>
+                          </div>
+                       </button>
+                     </a>
+                     <a target="_blank" href="https://play.google.com/store/apps/details?id=com.witplex.preschoolmathgame">
+                       <button class="google-play">
+                          <div class="google-button-content hidden md:block md:w-[88px] md:text-[12px]">
+                             <span class="get-text">Get it on</span>
+                             <span class="google-text md:text-[16px]">Google Play</span>
+                          </div>
+                       </button>
+                     </a>
+                 </div>
+              </div>
+           </div>
+        </div>
+     </div>
+      <!-- minerbox management -->
+      <div class="w-[100%]">
+        <div class="projectTitlePart mt-[10px] ml-[34px] w-[252px] md:w-[263px] md:ml-0 flex items-center justify-center lg:w-[304px]">
+           <img class="w-[27.81px] h-[28px] md:w-[43.92px] md:h-[44px]" src='./images/minerbox_logo.png'/>
+           <span class="projectName text-[#1E989B] md:text-[24px]">MinerBox Management</span>
+        </div>
+        <div class="minerManagementProject">
+           <div class="w-[100%] h-[40vw] md:h-[21vw] md:mt-[30px] md:bg-[url('./images/miner_management_md.png')] bg-[url('./images/miner_management_sm.png')] bg-cover bg-no-repeat mt-[14px] lg:bg-[url('./images/miner_management_lg.png')] lg:bg-contain"></div>
+        </div>
+      </div>
+      <!-- wild bloom -->
+      <div class="bloomWrapper w-[100%]">
+          <div class="w-[145px] h-[28px] m-auto flex items-center justify-between">
+              <img src="./images/bloom_logo.png" class="w-[28px] h-[28px]" />
+              <span class="text-[#7E8953] not-italic font-bold font-roboto text-[20px] leading-[23px]">Wild Bloom</span>
+          </div>
+          <div class="w-[100%] mt-[20px] bg-bloom relative lg:h-[480px]">
+            <div class="w-[116px] absolute bg-bloom h-[154px] xs:hidden sm:block mt-[15px] ml-[63%] md:hidden">
+               <img src="./images/bloom_main.png" class="w-[97px] h-[154px] absolute ml-[20px]" />
+               <img src="./images/bloom_product.png" class="w-[85px] h-[106px] absolute mt-[35px]" />
+             </div>
+            <div class="bloomContainer w-[298px] m-auto flex flex-col sm:w-[347px] md:flex-row md:w-[636px] lg:w-[1037px]">
+               <div class="w-full">
+                 <img src="./images/bloom-text.svg" class="mt-[14.5px] lg:mt-[30px] lg:w-[258px] lg:h-[66px]" />
+                 <div class="font-roboto text-[#434343] sm:w-[211px] lg:text-[20px] md:w-[276px] lg:w-[349px] not-italic font-normal leading-[16px] text-[14px] mt-[12.76px]">
+                   Developing an online store with Shopify
+                 </div>
+                 <div class="flex mt-[15px] w-[93px] lg:w-[126px] justify-between">
+                     <div>
+                        <img src="./images/shopify.png" class="w-[32px] h-[32px] lg:w-[50px] lg:h-[50px]" />
+                        <span class="text-[#737373] font-normal font-roboto text-[12px] leading-[14px] lg:text-[16px]">Shopify</span>
+                     </div>
+                     <div>
+                        <img src="./images/figma.png" class="w-[32px] h-[32px] lg:w-[50px] lg:h-[50px]" />
+                        <span class="text-[#737373] font-normal font-roboto text-[12px] leading-[14px] lg:text-[16px]">Figma</span>
+                     </div>
+                 </div>
+                 <div class="w-full text-[#000000] text-[16px] leading-[24.19px] font-roboto font-light tracking-[.5px] mt-[20px] lg:w-[386px] h-[100px] overflow-hidden md:h-auto">
+                  Looking for an expert team to take your Shopify store to the next level? Look no further than our web development services! Our team of experienced Shopify developers knows the ins and outs of the platform, 
+                  and can help you build a stunning online store that not only looks great but also functions smoothly.
+                 </div>
+                 <div class="font-extralight text-[16px] text-[#434343] leading-[24.19px] mt-[6px] lg:mt-[23px] lg:text-[14px]">Contact us today to get started!</div>
+               </div>
+               <div class="w-full relative h-[273px] sm:hidden md:block md:mt-[73px] md:ml-[10px] lg:mt-[34px]">
+                   <img src="./images/bloom_main.png" class="w-[171.34px] h-[272.14px] absolute md:w-[219px] lg:w-[367.15px] lg:h-[450px]" />
+                   <img src="./images/bloom_product.png" class="w-[145.82px] h-[182.74px] absolute mt-[45px] ml-[142.18px] md:w-[176px] md:h-[220.5px] lg:w-[322px] lg:h-[404px]" />
+               </div>
+            </div>
+            <div class="bloom-slides-container w-full bg-[#FFFFFF] md:bg-modal h-[132px] absolute mt-[-137px] z-[1000] sm:mt-0 md:h-[470px] md:hidden">
+               <div class="bloom-slides w-[347px] h-[58px] md:w-[636px] md:h-[111px] lg:w-[942px] lg:h-[138px] mt-[14px] ml-[11px] sm:m-auto sm:mt-[14px] flex justify-between md:mt-[300px] md:bg-transparent overflow-hidden">
+               </div>
+            </div>
+          </div>
+      </div>
+     </div>
+    </div> 
+   </div>
+  <script defer src='./index.js'></script>
+  </body>
+</html>
